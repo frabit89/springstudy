@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  <bean class="com.gdu.prj01.xml03.MyConnection"
+        id="myConnection"
+        scope="singleton">
+    <property name="driver" value="oracle.jdbc.OracleDriver" />
+    <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+    <property name="user" value="GD" />
+    <property name="password" value="1111" />
+  </bean>
+
+  <bean class="com.gdu.prj01.xml03.MyDao"
+        id="myDao"
+        scope="singleton">
+    <property name="myConnection" ref="myConnection" /> <!-- ref == id -->
+  </bean>
+  
+  <bean class="com.gdu.prj01.xml03.MyService"
+        id="myservice"
+        scope="singleton">
+    <property name="myDao" ref="myDao"></property>
+  </bean>
+  
+  <bean class="com.gdu.prj01.xml03.MyController"
+        id="myController"
+        scope="singleton">
+    <property name="myService" ref="myservice" />
+  </bean>
+  
+  
+</beans>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 객체(object)는 빈(bean)이라고 부른다. -->
+
+<!-- Calculator calculator = new Calculator(); -->
+<bean class="com.gdu.prj01.xml01.Calculator" 
+      id="calculator"
+      scope="singleton"/>
+
+<!-- 
+  Computer computer1 = new Computer();
+  computer1.setModel("gram");
+  computer1.setPrice(200);
+  computer1.setCalculator(new Calculator());
+ -->
+  <bean class="com.gdu.prj01.xml01.Computer"
+        id="computer1"
+        scope="singleton">
+    <property name="model" value="gram" />      
+    <property name="price" value="200" /> <!-- property 설정이 set을 불러옴 -->
+    <property name="calculator" ref="calculator" /> <!-- ref 설정이 다른 bean을 불러옴 -->
+  </bean>
+  
+  <!-- 
+    Computer computer2 = new Computer("macbook", 300, new Calculator());
+   -->
+   <bean class="com.gdu.prj01.xml01.Computer"
+         id="computer2"
+         scope="singleton">
+     <constructor-arg value="macbook" />
+     <constructor-arg value="300" />
+     <constructor-arg ref="calculator" /> <!-- constructor-arg는 순서대로 넣어야 한다. -->
+   </bean>
+
+</beans>
