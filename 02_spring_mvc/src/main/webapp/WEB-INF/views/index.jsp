@@ -9,6 +9,10 @@
 <title>Welcome</title>
 </head>
 <body>
+
+  <%-- 정적 자원 확인 --%>
+  <img src= "${contextPath}/resources/image/404.jpg"  width="200px">
+
   <%-- MyController2 --%>
   <div>
     <a href="${contextPath}/board/list.do">board 목록</a>
@@ -20,6 +24,31 @@
     <a href="${contextPath}/article/detail2.do?article_no=10">article 상세2</a>
     <a href="${contextPath}/article/detail3.do?article_no=10">article 상세3</a>
   </div>
+  
+  <%-- MyController4 --%>
+  <div>
+    <a href="${contextPath}/blog/list.do">블로그 목록</a>
+  </div>
 
+  <%-- MyController5 --%>
+  <div>
+    <a href="${contextPath}/faq/list.do">faq 등록</a>
+    <a href="${contextPath}/faq/modify.do">faq 수정</a>
+  </div>
+  
+  <%-- MyController6 --%>
+  <div>
+    <!-- session에 저장된 user라는 뜻 -->
+    <c:if test="${sessionScope.user == null}">
+      <a href="${contextPath}/user/login1.do">로그인1</a>
+      <a href="${contextPath}/user/login2.do">로그인2</a>
+    </c:if>
+    <c:if test="${sessionScope.user != null}">
+      <span><a href="${contextPath}/user/mypage.do">${sessionScope.user.userEmail}</a>님 반갑습니다.</span>
+      <a href="${contextPath}/user/logout1.do">로그아웃1</a>
+      <a href="${contextPath}/user/logout2.do">로그아웃2</a>
+    </c:if>
+  </div>
+  
 </body>
 </html>
