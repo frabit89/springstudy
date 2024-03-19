@@ -59,7 +59,7 @@
   <update id="modifyContact"
           parameterType="ContactDto">
     UPDATE CONTACT_T
-      SER NAME= #{name}         
+      SET NAME = #{name}         
         , MOBILE = #{mobile}
         , EMAIL = #{email}
         , ADDRESS = #{address}

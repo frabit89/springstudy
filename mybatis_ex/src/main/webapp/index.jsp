@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +9,9 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
-
-  <a href="${contextPath}/contact/list.do">게시판</a>
-
+   <div>
+    <a href="${contextPath}/student/list.do">학생관리</a>
+  </div>
+  
 </body>
 </html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  <!-- XML 버전 및 인코딩을 지정합니다.
+DOCTYPE 선언은 XML 문서가 따르는 DTD(Document Type Definition)을 정의 -->
+  <!-- sqlSession을 사용 --> 
+  <!-- Dao                         mapper -->
+ <!-- (Java코드만 사용)          (SQL 쿼리만 사용) -->
+<configuration>
+  <environments default="development">
+  <!-- MyBatis가 실행될 환경 정의, development(default) 환경을 기본으로 설정 -->
+    <environment id="development">
+    <!-- 세부 환경 정의, 식별자 development -->
+      <transactionManager type="JDBC"/>
+      <!-- 트랜잭션 관리자의 유형 지정 -->
+      <!--  트랜잭션 관리자: 데이터베이스에서 여러 개의 데이터 조작 작업을 논리적 단위로 묶어서 실행하고, 이 작업들을 안전하게 제어하는 역할 -->
+      <dataSource type="POOLED">
+        <property name="driver" value="oracle.jdbc.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="GD"/>
+        <property name="password" value="1111"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <mappers>
+    <mapper resource="com/gdu/prj/dao/board_t.xml"/>
+    <!-- 문법을 다르게 경로를 사용 -->
+  <!-- 매퍼 파일의 경로 -->
+  </mappers>
+  
+</configuration>
