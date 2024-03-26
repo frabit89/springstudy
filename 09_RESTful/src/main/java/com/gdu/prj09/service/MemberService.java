@@ -12,7 +12,7 @@ import com.gdu.prj09.dto.MemberDto;
 public interface MemberService {
   // @ResponseBody 를 가지고 있음 일종의 wrapper
   ResponseEntity<Map<String, Object>> getMembers(int page, int display);
-  ResponseEntity<MemberDto> getMemberByNo(int memberNo);
+  ResponseEntity<Map<String, Object>> getMemberByNo(int memberNo);
   ResponseEntity<Map<String, Object>> registerMember(Map<String, Object> map, HttpServletResponse response); // email 전달 후 1. 정상 처리 되었다. 2. exception 처리 되었다. 로 나누기.
   ResponseEntity<Map<String, Object>> modifyMember(MemberDto member);
   ResponseEntity<Map<String, Object>> removeMember(int memberNo);
